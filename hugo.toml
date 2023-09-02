@@ -1,6 +1,6 @@
 baseURL = "https://visualcomputing.github.io/posteffects"
 languageCode = "es-co"
-title = "Postefects"
+title = "Posteffects"
 theme = 'book'
 
 # Book configuration

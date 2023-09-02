@@ -3,7 +3,7 @@ title: Introducción
 type: docs
 ---
 
-# Postefects
+# Posteffects
 > Por *Diego Fernando Bulla Poveda*
 
 Esta es la página dedicada a crear una buena introducción del libro que 
