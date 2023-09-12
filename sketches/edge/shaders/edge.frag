@@ -1,10 +1,10 @@
-precision medium float;
-
-uniform sampler2D tex;
-uniform vec2 aspect;
+precision mediump float;
 
 varying vec2 texcoords2;
 
+uniform sampler2D tex;
+uniform vec2 aspect;
+                                        
 vec2 texel = vec2(aspect.x, aspect.y);
 
 mat3 G[9];
@@ -19,8 +19,8 @@ mat3 G6 = mat3( 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0, 2.0/3.0, -1.0/3.0, 1.0/6.0
 mat3 G7 = mat3( -1.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0, 2.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0);
 mat3 G8 = mat3( 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0 );
                                                 
-void main(void)
-{
+void main(void) {
+        
         G[0] = G0;
         G[1] = G1;
         G[2] = G2;
@@ -55,3 +55,4 @@ void main(void)
 
         gl_FragColor = vec4(vec3(sqrt(M/S)), 1.0);
 }
+

@@ -4,7 +4,7 @@ uniform sampler2D tDiffuse;
 uniform float h;
 uniform float r;
 
-varying vec4 texcoords2;
+varying vec2 texcoords2;
 
 void main() {
 	vec2 vUv = texcoords2.st;
