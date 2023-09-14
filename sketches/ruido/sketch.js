@@ -44,11 +44,11 @@ function setup() {
   horizontal_pg.angleMode(DEGREES);
   horizontal_pg.shader(horizontal_shader);
   
-  hLevel = createSlider(0, 0.1, 0.005,  0);
+  hLevel = createSlider(0, main_pg.width, main_pg.width / 2,  1.0);
   hLevel.position(10, 10);
   hLevel.style('width', '80px');
   hLevel.input(function() {
-    horizontal_shader.setUniform('h', this.value() );
+    horizontal_shader.setUniform('h', this.value());
   });
 
   rLevel = createSlider(0, 1, 0.5, 0.1);
@@ -57,7 +57,7 @@ function setup() {
   rLevel.input(function() {
     horizontal_shader.setUniform('r', this.value());
   });
-  horizontal_shader.setUniform('h', 0.005);
+  horizontal_shader.setUniform('h', main_pg.width / 2);
   horizontal_shader.setUniform('r', 0.5);
 
   rx = 45;
@@ -67,21 +67,28 @@ function setup() {
 function draw() {
   main_pg.background(0);
   main_pg.normalMaterial();
-  render(main_pg);
+  
   horizontal_shader.setUniform('tDiffuse', main_pg);
   
+  render(main_pg);
+
+  
+  
+  let position = main_pg.treeLocation(Tree.ORIGIN,  {from: Tree.EYE, to: Tree.WORLD});
+  let center = p5.Vector.add(position, main_pg.treeDisplacement());
+  let up = main_pg.treeDisplacement(Tree.j);
+  
   horizontal_pg.background(0);
-  /*
+  
   horizontal_pg.camera(position.x, position.y, position.z,
     center.x, center.y, center.z,
     up.x, up.y, up.z);
   
-  */
+  
   //render(horizontal_pg);
   
-  
+    horizontal_pg.image(main_pg, - horizontal_pg.width / 2, - horizontal_pg.height / 2);
 
-  horizontal_pg.quad(-1, 1, 1, 1, 1, -1, -1, -1);
   image(main_pg, 0, 0);
   image(horizontal_pg, width / 2, 0);
 
@@ -107,3 +114,38 @@ function render2(graphics){
   graphics.image(img, - graphics.width / 2, - graphics.height / 2, graphics.width, graphics.height);
   
 }
+/*
+function render(graphics){
+  graphics.noStroke();
+  ry = (ry + 1) % 360;
+  rx = (rx + 1) % 360;
+   
+  graphics.push();
+      graphics.fill(1, 1, 0, 1);
+      graphics.rotateY(ry);
+      graphics.torus(100, 20);
+  graphics.pop();
+  graphics.push()
+      graphics.fill(0, 1, 1, 1);
+      graphics.rotateX(rx);
+      graphics.torus(100, 20);
+  graphics.pop();
+  graphics.push();
+      graphics.fill(1, 0, 1, 1);
+      graphics.rotateX(90);
+      graphics.rotateY(ry);
+      graphics.torus(100, 20);
+  graphics.pop();
+  graphics.push();
+      graphics.fill(0.5, 1);
+      graphics.rotateX(90);
+      graphics.rotateY(-ry);
+      graphics.torus(100, 20);
+  graphics.pop();
+  graphics.push();
+      graphics.fill(0, 0, 1);
+      graphics.sphere(50);
+  graphics.pop();
+  
+}
+*/
