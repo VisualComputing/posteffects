@@ -23,8 +23,8 @@ function setup() {
   main_pg.angleMode(DEGREES);
   main_pg.colorMode(RGB, 1);
   //main_pg.stroke(0); 
-  //easycam = new Dw.EasyCam(main_pg._renderer);
-  //easycam.attachMouseListeners(this._renderer);
+  easycam = new Dw.EasyCam(main_pg._renderer);
+  easycam.attachMouseListeners(this._renderer);
   
   edge_pg = createGraphics(width / 2, height, WEBGL);
   edge_pg.textureMode(NORMAL);
@@ -32,21 +32,21 @@ function setup() {
   edge_pg.angleMode(DEGREES);
   edge_pg.shader(edge_shader);
   
-  aspectX = createSlider(1, 100, 25);
+  aspectX = createSlider(0, 1, 1 / main_pg.width);
   aspectX.position(10, 10);
   aspectX.style('width', '80px');
   aspectX.input(function() {
     pixelate_shader.setUniform('aspect', [this.value, aspectY.value()]())
   });
 
-  aspectY = createSlider(1, 100, 25);
+  aspectY = createSlider(0, 1, 1 / main_pg.height);
   aspectY.position(10, 40);
   aspectY.style('width', '80px');
   aspectY.input(function() {
     edge_shader.setUniform('aspect', [aspectX.value(), this.value()]);
   });
 
-  aspect = [main_pg.width / main_pg.height, 1.0];
+  aspect = [1 / main_pg.width, 1 / main_pg.height];
   edge_shader.setUniform('aspect', aspect);
 
   rx = 45;
@@ -54,28 +54,17 @@ function setup() {
 }
 
 function draw() {
-  main_pg.background(1);
-  //main_pg.normalMaterial();
+  main_pg.background(0);
+  edge_pg.background(0);
   
+  render(main_pg);
   edge_shader.setUniform('tex', main_pg);
-  
-  render2(main_pg);
-  
-  edge_pg.background(1);
-  
+    
   let position = main_pg.treeLocation(Tree.ORIGIN,  {from: Tree.EYE, to: Tree.WORLD});
   let center = p5.Vector.add(position, main_pg.treeDisplacement());
   let up = main_pg.treeDisplacement(Tree.j);
   
-  /*
-  edge_pg.camera(position.x, position.y, position.z,
-    center.x, center.y, center.z,
-    up.x, up.y, up.z);
-  */
-
-  edge_pg.image(main_pg, - edge_pg.width / 2, - edge_pg.height / 2);
-  //render(edge_pg);
-
+  edge_pg.quad(-150, 150, 150, 150, 150, -150, -150, -150);
   image(main_pg, 0, 0);
   image(edge_pg, width / 2, 0);
 
@@ -94,7 +83,7 @@ function render(graphics){
       graphics.box(100);
   graphics.pop();
   graphics.push()
-      graphics.fill(0, 0, 0, 1);
+      graphics.fill(0, 1, 1, 1);
       graphics.rotateX(rx);
       graphics.box(100);
   graphics.pop();

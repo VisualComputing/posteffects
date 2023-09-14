@@ -1,15 +1,15 @@
 let easyCam; 
-let main_pg, horizontal_pg;
-let horizontal_shader;
+let main_pg, kaleido_pg;
+let kaleido_shader;
 let models;
 let rx, ry;
-let hLevel, rLevel;
+let segments;
 let img;
 const trange = 100;
 
 function preload(){
-  img = loadImage('/posteffects/sketches/horizontal/liminal01.jpeg');
-  horizontal_shader = readShader('/posteffects/sketches/horizontal/shaders/horizontal.frag', {
+  img = loadImage('/posteffects/sketches/caleidoscopio/liminal01.jpeg');
+  kaleido_shader = readShader('/posteffects/sketches/caleidoscopio/shaders/kaleido.frag', {
     varyings: Tree.texcoords2
   });
 }
@@ -30,7 +30,7 @@ function setup() {
       }
     );
   }
-
+  
   main_pg = createGraphics(width / 2, height, WEBGL);
   main_pg.angleMode(DEGREES);
   main_pg.colorMode(RGB, 1);
@@ -38,56 +38,42 @@ function setup() {
   easycam = new Dw.EasyCam(main_pg._renderer);
   easycam.attachMouseListeners(this._renderer);
   
-  horizontal_pg = createGraphics(width / 2, height, WEBGL);
-  horizontal_pg.textureMode(NORMAL);
-  horizontal_pg.colorMode(RGB, 1);
-  horizontal_pg.angleMode(DEGREES);
-  horizontal_pg.shader(horizontal_shader);
+  kaleido_pg = createGraphics(width / 2, height, WEBGL);
+  kaleido_pg.textureMode(NORMAL);
+  kaleido_pg.colorMode(RGB, 1);
+  kaleido_pg.angleMode(DEGREES);
+  kaleido_pg.shader(kaleido_shader);
   
-  hLevel = createSlider(0, 0.1, 0.005,  0);
-  hLevel.position(10, 10);
-  hLevel.style('width', '80px');
-  hLevel.input(function() {
-    horizontal_shader.setUniform('h', this.value() );
+  segments = createSlider(1, 9, 1,  1);
+  segments.position(10, 10);
+  segments.style('width', '80px');
+  segments.input(function() {
+    kaleido_shader.setUniform('segments', this.value());
   });
-
-  rLevel = createSlider(0, 1, 0.5, 0.1);
-  rLevel.position(10, 40);
-  rLevel.style('width', '80px');
-  rLevel.input(function() {
-    horizontal_shader.setUniform('r', this.value());
-  });
-  horizontal_shader.setUniform('h', 0.005);
-  horizontal_shader.setUniform('r', 0.5);
-
+  kaleido_shader.setUniform('segments', segments.value());
+  
+  
   rx = 45;
   ry = 45;
 }
 
 function draw() {
   main_pg.background(0);
-  main_pg.normalMaterial();
+  kaleido_pg.background(125);
+  
   render(main_pg);
-  horizontal_shader.setUniform('tDiffuse', main_pg);
+  kaleido_shader.setUniform('texture', main_pg);
   
-  horizontal_pg.background(0);
-  /*
-  horizontal_pg.camera(position.x, position.y, position.z,
-    center.x, center.y, center.z,
-    up.x, up.y, up.z);
+  kaleido_pg.quad(-1, 1, 1, 1, 1, -1, -1, -1);
   
-  */
-  //render(horizontal_pg);
-  
-  
-
-  horizontal_pg.quad(-1, 1, 1, 1, 1, -1, -1, -1);
   image(main_pg, 0, 0);
-  image(horizontal_pg, width / 2, 0);
+  image(kaleido_pg, width / 2, 0);
 
   main_pg.reset();
-  horizontal_pg.reset();
+  kaleido_pg.reset();
 }
+
+
 
 function render(graphics) {
   graphics.push();
