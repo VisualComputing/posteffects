@@ -3,11 +3,11 @@ let main_pg, edge_pg;
 let edge_shader;
 let aspect, aspectX, aspectY;
 let rx, ry;
-
+let x, y;
 let img;
 
 function preload(){
-  img = loadImage('/posteffects/sketches/horizontal/liminal01.jpeg');
+  img = loadImage('/posteffects/sketches/edge/Buho final.jpg');
   edge_shader = readShader('/posteffects/sketches/edge/shaders/edge.frag', {
     varyings: Tree.texcoords2, 
     matrices: Tree.pmvMatrix
@@ -22,7 +22,7 @@ function setup() {
   main_pg = createGraphics(width / 2, height, WEBGL);
   main_pg.angleMode(DEGREES);
   main_pg.colorMode(RGB, 1);
-  //main_pg.stroke(0); 
+  main_pg.stroke(0); 
   easycam = new Dw.EasyCam(main_pg._renderer);
   easycam.attachMouseListeners(this._renderer);
   
@@ -32,6 +32,9 @@ function setup() {
   edge_pg.angleMode(DEGREES);
   edge_pg.shader(edge_shader);
   
+  x = edge_pg.width / 2;
+  y = edge_pg.height / 2;
+
   aspectX = createSlider(0, 1, 1 / main_pg.width);
   aspectX.position(10, 10);
   aspectX.style('width', '80px');
@@ -59,12 +62,8 @@ function draw() {
   
   render(main_pg);
   edge_shader.setUniform('tex', main_pg);
-    
-  let position = main_pg.treeLocation(Tree.ORIGIN,  {from: Tree.EYE, to: Tree.WORLD});
-  let center = p5.Vector.add(position, main_pg.treeDisplacement());
-  let up = main_pg.treeDisplacement(Tree.j);
   
-  edge_pg.quad(-150, 150, 150, 150, 150, -150, -150, -150);
+  edge_pg.quad(-x, -y, x, - y, x, y, -x, y);
   image(main_pg, 0, 0);
   image(edge_pg, width / 2, 0);
 
@@ -76,7 +75,7 @@ function render(graphics){
   graphics.noStroke();
   ry = (ry + 0.5) % 360;
   rx = (rx + 0.5) % 360;
-  //graphics.strokeWeight(10);
+  
   graphics.push();
       graphics.fill(1, 1, 0, 1);
       graphics.rotateY(ry);
@@ -94,12 +93,11 @@ function render(graphics){
       graphics.box(100);
   graphics.pop();
   graphics.push();
-      graphics.fill(0.5, 1);
+      graphics.fill(0);
       graphics.rotateX(90);
       graphics.rotateY(-ry);
       graphics.box(100);
   graphics.pop();
- 
 }
 
 
