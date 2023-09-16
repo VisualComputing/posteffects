@@ -1,7 +1,7 @@
 let easyCam; 
 let main_pg, pixel_pg;
 let pixelate_shader;
-
+let x, y;
 let rx, ry;
 let pXLevel, pYLevel;
 
@@ -30,6 +30,9 @@ function setup() {
   pixel_pg.angleMode(DEGREES);
   pixel_pg.shader(pixelate_shader);
   
+  x = pixel_pg.width / 2;
+  y = pixel_pg.height / 2;
+
   pXLevel = createSlider(1, 255, 25);
   pXLevel.position(10, 10);
   pXLevel.style('width', '80px');
@@ -52,14 +55,13 @@ function setup() {
 function draw() {
   main_pg.background(0);
   main_pg.normalMaterial();
-  
-  pixelate_shader.setUniform('tex', main_pg);
-  
-  render(main_pg);
-  
   pixel_pg.background(0);
 
-  pixel_pg.image(main_pg, - main_pg.width / 2, - main_pg.height / 2);
+  render(main_pg);
+  pixelate_shader.setUniform('tex', main_pg);
+  
+  //pixel_pg.image(main_pg, - main_pg.width / 2, - main_pg.height / 2);
+  pixel_pg.quad(-x, -y, x, - y, x, y, -x, y);
 
   image(main_pg, 0, 0);
   image(pixel_pg, width / 2, 0);
