@@ -1,19 +1,18 @@
 let easyCam; 
-let main_pg, horizontal_pg;
-let horizontal_shader;
+let main_pg, rays_pg, pg;
+let rays_shader;
 let models;
 let rx, ry;
-let hLevel, rLevel;
+let lightPositionOnScreenX, lightPositionOnScreenY, lightDirDOTviewDir;
 let img;
 const trange = 100;
 
 function preload(){
-  img = loadImage('/posteffects/sketches/horizontal/liminal01.jpeg');
-  horizontal_shader = readShader('/posteffects/sketches/horizontal/shaders/horizontal.frag', {
+  img = loadImage('/posteffects/sketches/rayos/liminal01.jpeg');
+  rays_shader = readShader('/posteffects/sketches/rayos/shaders/rays.frag', {
     varyings: Tree.texcoords2
   });
 }
-
 function setup() {
   createCanvas(600, 300);
   angleMode(DEGREES);
@@ -38,55 +37,66 @@ function setup() {
   easycam = new Dw.EasyCam(main_pg._renderer);
   easycam.attachMouseListeners(this._renderer);
   
-  horizontal_pg = createGraphics(width / 2, height, WEBGL);
-  horizontal_pg.textureMode(NORMAL);
-  horizontal_pg.colorMode(RGB, 1);
-  horizontal_pg.angleMode(DEGREES);
-  horizontal_pg.shader(horizontal_shader);
-  
-  hLevel = createSlider(0, 0.1, 0.005,  0);
-  hLevel.position(10, 10);
-  hLevel.style('width', '80px');
-  hLevel.input(function() {
-    horizontal_shader.setUniform('h', this.value() );
+  rays_pg = createGraphics(width / 2, height, WEBGL);
+  rays_pg.textureMode(NORMAL);
+  rays_pg.colorMode(RGB, 1);
+  rays_pg.angleMode(DEGREES);
+  rays_pg.shader(rays_shader);
+    
+  lightPositionOnScreenX = createSlider(0, 1, 0.5,  0);
+  lightPositionOnScreenX.position(10, 10);
+  lightPositionOnScreenX.style('width', '80px');
+  lightPositionOnScreenX.input(function() {
+    rays_shader.setUniform('lightPositionOnScreen', [this.value(), lightPositionOnScreenY.value()]() );
   });
 
-  rLevel = createSlider(0, 1, 0.5, 0.1);
-  rLevel.position(10, 40);
-  rLevel.style('width', '80px');
-  rLevel.input(function() {
-    horizontal_shader.setUniform('r', this.value());
+  lightPositionOnScreenY = createSlider(0, 1, 0.5,  0);
+  lightPositionOnScreenY.position(10, 40);
+  lightPositionOnScreenY.style('width', '80px');
+  lightPositionOnScreenY.input(function() {
+    rays_shader.setUniform('lightPositionOnScreen', [lightPositionOnScreenY.value(), this.value()]() );
   });
-  horizontal_shader.setUniform('h', 0.005);
-  horizontal_shader.setUniform('r', 0.5);
+
+  lightDirDOTviewDir = createSlider(0, 1, 0.7, 0.1);
+  lightDirDOTviewDir.position(10, 70);
+  lightDirDOTviewDir.style('width', '80px');
+  lightDirDOTviewDir.input(function() {
+    rays_shader.setUniform('lightDirDOTviewDir', this.value());
+  });
+    
+  rays_shader.setUniform('lightPositionOnScreen', [lightPositionOnScreenX.value(), lightPositionOnScreenY.value()]);
+  rays_shader.setUniform('lightDirDOTviewDir', lightDirDOTviewDir.value());
+
+  //rays_shader.setUniform('lightPositionOnScreen', [0.5, 0.5]);
+  //rays_shader.setUniform('lightDirDOTviewDir', 0.7);
 
   rx = 45;
   ry = 45;
+  pg = main_pg;
 }
 
 function draw() {
   main_pg.background(0);
   main_pg.normalMaterial();
   render(main_pg);
-  horizontal_shader.setUniform('tDiffuse', main_pg);
+  rays_shader.setUniform('otex', main_pg);
+  rays_shader.setUniform('rtex', main_pg);
   
-  horizontal_pg.background(0);
+  rays_pg.background(0);
   /*
-  horizontal_pg.camera(position.x, position.y, position.z,
+  rays_pg.camera(position.x, position.y, position.z,
     center.x, center.y, center.z,
     up.x, up.y, up.z);
   
   */
-  //render(horizontal_pg);
+  //render(rays_pg);
   
-  
-
-  horizontal_pg.quad(-1, 1, 1, 1, 1, -1, -1, -1);
+  rays_pg.quad(-1, 1, 1, 1, 1, -1, -1, -1);
   image(main_pg, 0, 0);
-  image(horizontal_pg, width / 2, 0);
-
+  image(rays_pg, width / 2, 0);
+  pg = rays_pg;
   main_pg.reset();
-  horizontal_pg.reset();
+  rays_pg.reset();
 }
 
 function render(graphics) {

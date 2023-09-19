@@ -1,4 +1,6 @@
 ---
-weight: 3
+bookCollapseSection: true
 bookFlatSection: true
+weight: 2
+draft: false
 ---
