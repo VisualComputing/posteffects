@@ -1,26 +1,24 @@
 precision mediump float;
 
-varying vec2 texcoords2;
-
 uniform sampler2D tex;
 uniform vec2 aspect;
-                                        
+
+varying vec2 texcoords2;
+
 vec2 texel = vec2(aspect.x, aspect.y);
 
 mat3 G[9];
-
 mat3 G0 = mat3( 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0.5, 0, -0.5, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0) );
 mat3 G1 = mat3( 0.5/sqrt(2.0), 0.5, 0.5/sqrt(2.0), 0, 0, 0, -0.5/sqrt(2.0), -0.5, -0.5/sqrt(2.0) );
 mat3 G2 = mat3( 0, -0.5/sqrt(2.0), 0.5, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), -0.5, 0.5/sqrt(2.0), 0 );
 mat3 G3 = mat3( 0.5, -0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), -0.5 );
-mat3 G4 = mat3( 0, 0.5, 0, -0.5, 0, -0.5, 0, 0.5, 0);
-mat3 G5 = mat3( -0.5, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5 );
-mat3 G6 = mat3( 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0, 2.0/3.0, -1.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0 );
+mat3 G4 = mat3( 0, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0);
+mat3 G5 = mat3( -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0, 0, 0, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0) );
+mat3 G6 = mat3( 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0, 2.0/3.0, 1.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0 );
 mat3 G7 = mat3( -1.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0, 2.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0);
 mat3 G8 = mat3( 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0 );
                                                 
-void main(void) {
-        
+void main(void) {        
         G[0] = G0;
         G[1] = G1;
         G[2] = G2;
@@ -35,17 +33,14 @@ void main(void) {
         float cnv[9];
         vec3 s;
             
-        for (float i=0.0; i<3.0; i++)
-        {
-                for (float j=0.0; j<3.0; j++)
-                {
+        for (float i=0.0; i<3.0; i++) {
+                for (float j=0.0; j<3.0; j++) {
                         s = texture2D(tex, texcoords2.st + texel * vec2(i-1.0,j-1.0)).rgb;
                         I[int(i)][int(j)] = length(s); 
                 }
         }
 
-        for (int i=0; i<9; i++)
-        {
+        for (int i=0; i<9; i++) {
                 float dp3 = dot(G[i][0], I[0]) + dot(G[i][1], I[1]) + dot(G[i][2], I[2]);
                 cnv[i] = dp3 * dp3; 
         }
@@ -55,4 +50,3 @@ void main(void) {
 
         gl_FragColor = vec4(vec3(sqrt(M/S)), 1.0);
 }
-
