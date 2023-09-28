@@ -1,11 +1,18 @@
-<!doctype html><html lang=es-co dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Detección de Bordes # "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content=" Detección de Bordes # "><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/posteffects/docs/Efectos/Detecci%C3%B3n-de-Bordes/"><meta property="article:section" content="docs"><title>Detección De Bordes | Posteffects</title><link rel=manifest href=/posteffects/manifest.json><link rel=icon href=/posteffects/favicon.png type=image/x-icon><link rel=stylesheet href=/posteffects/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/posteffects/flexsearch.min.js></script>
-<script defer src=/posteffects/en.search.min.d78d43879cd9e9ebb9c1d0843a69c663a5c75254caa1ef99439c7da31704485c.js integrity="sha256-141Dh5zZ6eu5wdCEOmnGY6XHUlTKoe+ZQ5x9oxcESFw=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=es-co dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Detección de Bordes # Se define como borde aquellos cambios en la dirección de la superficie, a los puntos en los que materiales diferentes entran en contacto, cambios abruptos en la luz o en la profundidad.
+Hay ocasiones en las que es necesario encontrar dichos bordes, por ejemplo si se desea segmentar una imagen, hallar elementos puntuales o reducir el la cantidad de información con la que se entrena determinado modelo de inteligencia artificial."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Detección de Bordes # Se define como borde aquellos cambios en la dirección de la superficie, a los puntos en los que materiales diferentes entran en contacto, cambios abruptos en la luz o en la profundidad.
+Hay ocasiones en las que es necesario encontrar dichos bordes, por ejemplo si se desea segmentar una imagen, hallar elementos puntuales o reducir el la cantidad de información con la que se entrena determinado modelo de inteligencia artificial."><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/posteffects/docs/Efectos/Detecci%C3%B3n-de-Bordes/"><meta property="article:section" content="docs"><title>Detección De Bordes | Posteffects</title><link rel=manifest href=/posteffects/manifest.json><link rel=icon href=/posteffects/favicon.png type=image/x-icon><link rel=stylesheet href=/posteffects/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/posteffects/flexsearch.min.js></script>
+<script defer src=/posteffects/en.search.min.bf0f8ae44b51cab32edca8a0c1734e5e9da8ccedf988850fcde4bf9093860e18.js integrity="sha256-vw+K5EtRyrMu3KigwXNOXp2ozO35iIUPzeS/kJOGDhg=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/posteffects/><span>Posteffects</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><input type=checkbox id=section-0f516780f0e03c1811ded5819441605a class=toggle checked>
-<label for=section-0f516780f0e03c1811ded5819441605a class="flex justify-between"><a role=button>Efectos</a></label><ul><li><a href=/posteffects/docs/Efectos/Mapa-de-Profundidad/>Mapa De Profundidad</a></li><li><a href=/posteffects/docs/Efectos/Profundidad-de-Campo/>Profundidad De Campo</a></li><li><a href=/posteffects/docs/Efectos/Pixelador/>Pixelador</a></li><li><a href=/posteffects/docs/Efectos/Detecci%C3%B3n-de-Bordes/ class=active>Detección De Bordes</a></li><li><a href=/posteffects/docs/Efectos/Horizontal/>Horizontal</a></li><li><a href=/posteffects/docs/Efectos/Caleidoscopio/>Caleidoscopio</a></li><li><a href=/posteffects/docs/Efectos/Ruido/>Ruido</a></li><li><a href=/posteffects/docs/Efectos/Rayos/>Rayos</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-039690677835ee748aa00d86a9f370b9 class=toggle>
+<label for=section-0f516780f0e03c1811ded5819441605a class="flex justify-between"><a role=button>Efectos</a></label><ul><li><a href=/posteffects/docs/Efectos/Mapa-de-Profundidad/>Mapa De Profundidad</a></li><li><a href=/posteffects/docs/Efectos/Profundidad-de-Campo/>Profundidad De Campo</a></li><li><a href=/posteffects/docs/Efectos/Pixelador/>Pixelador</a></li><li><a href=/posteffects/docs/Efectos/Detecci%C3%B3n-de-Bordes/ class=active>Detección De Bordes</a></li><li><a href=/posteffects/docs/Efectos/Desenfoque-Horizontal/>Desenfoque Horizontal</a></li><li><a href=/posteffects/docs/Efectos/Caleidoscopio/>Caleidoscopio</a></li><li><a href=/posteffects/docs/Efectos/Ruido/>Ruido</a></li><li><a href=/posteffects/docs/Efectos/Rayos/>Rayos</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-039690677835ee748aa00d86a9f370b9 class=toggle>
 <label for=section-039690677835ee748aa00d86a9f370b9 class="flex justify-between"><a role=button>Apéndices</a></label><ul><li><a href=/posteffects/docs/Ap%C3%A9ndices/Apuntes-de-p5.treegl/>Apuntes De P5.treegl</a></li></ul></li><li class=book-section-flat><span>Monitoría Poo</span><ul><li><a href=/posteffects/docs/Monitor%C3%ADa-POO/Introducci%C3%B3n-a-JavaScript/>Introducción a Java Script</a></li><li><a href=/posteffects/docs/Monitor%C3%ADa-POO/Introducci%C3%B3n-a-p5/>Introducción a P5</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/posteffects/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Detección De Bordes</strong>
-<label for=toc-control><img src=/posteffects/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#detección-de-bordes>Detección de Bordes</a></li></ul></nav></aside></header><article class=markdown><h1 id=detección-de-bordes>Detección de Bordes
-<a class=anchor href=#detecci%c3%b3n-de-bordes>#</a></h1><iframe id=sketch style=width:625px;height:625px srcdoc="
+<label for=toc-control><img src=/posteffects/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#detección-de-bordes>Detección de Bordes</a><ul><li><a href=#código-del-fragment-shader-del-efecto>Código del Fragment Shader del Efecto.</a></li><li><a href=#convolución>Convolución.</a></li><li><a href=#referencias>Referencias:</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=detección-de-bordes>Detección de Bordes
+<a class=anchor href=#detecci%c3%b3n-de-bordes>#</a></h1><p>Se define como borde aquellos cambios en la dirección de la superficie, a los puntos
+en los que materiales diferentes entran en contacto, cambios abruptos en la luz o en la profundidad.</p><p>Hay ocasiones en las que es necesario encontrar dichos bordes, por ejemplo si se desea segmentar una imagen, hallar
+elementos puntuales o reducir el la cantidad de información con la que se entrena determinado modelo de inteligencia
+artificial. Afortunadamente existen efectos como el mostrado en esta sección, capaces de transformar una escena en una
+representación de sus contornos.</p><p>Para ilustrar lo anteriormente descrito, se aplica el efecto de detección de bordes sobre un conjunto de elementos coloreados y
+ubicados de forma aleatoria en el espacio.</p><iframe id=sketch style=width:625px;height:325px srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -21,4 +28,142 @@
           <body>
           </body>
         </html>
-      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#detección-de-bordes>Detección de Bordes</a></li></ul></nav></div></aside></main></body></html>
+      "></iframe><h2 id=código-del-fragment-shader-del-efecto>Código del Fragment Shader del Efecto.
+<a class=anchor href=#c%c3%b3digo-del-fragment-shader-del-efecto>#</a></h2><details open><summary>pixelate.frag</summary><div class=markdown-inner><pre tabindex=0><code>precision mediump float;
+
+uniform sampler2D tex;
+uniform vec2 aspect;
+
+varying vec2 texcoords2;
+
+vec2 texel = vec2(aspect.x, aspect.y);
+
+mat3 G[9];
+mat3 G0 = mat3( 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0.5, 0, -0.5, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0) );
+mat3 G1 = mat3( 0.5/sqrt(2.0), 0.5, 0.5/sqrt(2.0), 0, 0, 0, -0.5/sqrt(2.0), -0.5, -0.5/sqrt(2.0) );
+mat3 G2 = mat3( 0, -0.5/sqrt(2.0), 0.5, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), -0.5, 0.5/sqrt(2.0), 0 );
+mat3 G3 = mat3( 0.5, -0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), -0.5 );
+mat3 G4 = mat3( 0, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0);
+mat3 G5 = mat3( -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0, 0, 0, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0) );
+mat3 G6 = mat3( 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0, 2.0/3.0, 1.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0 );
+mat3 G7 = mat3( -1.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0, 2.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0);
+mat3 G8 = mat3( 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0 );
+                                                
+void main(void) {        
+    G[0] = G0;
+    G[1] = G1;
+    G[2] = G2;
+    G[3] = G3;
+    G[4] = G4;
+    G[5] = G5;
+    G[6] = G6;
+    G[7] = G7;
+    G[8] = G8;
+
+    mat3 I;
+    float cnv[9];
+    vec3 s;
+            
+    for (float i=0.0; i&lt;3.0; i++) {
+        for (float j=0.0; j&lt;3.0; j++) {
+            s = texture2D(tex, texcoords2.st + texel * vec2(i-1.0,j-1.0)).rgb;
+            I[int(i)][int(j)] = length(s); 
+        }
+    }
+
+    for (int i=0; i&lt;9; i++) {
+        float dp3 = dot(G[i][0], I[0]) + dot(G[i][1], I[1]) + dot(G[i][2], I[2]);
+        cnv[i] = dp3 * dp3; 
+    }
+
+    float M = (cnv[0] + cnv[1]) + (cnv[2] + cnv[3]);
+    float S = (cnv[4] + cnv[5]) + (cnv[6] + cnv[7]) + (cnv[8] + M); 
+
+    gl_FragColor = vec4(vec3(sqrt(M/S)), 1.0);
+}
+</code></pre></div></details><p>Para entender este shader, hay que empezar por
+analizar esta sección:</p><pre tabindex=0><code>mat3 G[9];
+mat3 G0 = mat3( 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0.5, 0, -0.5, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0) );
+mat3 G1 = mat3( 0.5/sqrt(2.0), 0.5, 0.5/sqrt(2.0), 0, 0, 0, -0.5/sqrt(2.0), -0.5, -0.5/sqrt(2.0) );
+mat3 G2 = mat3( 0, -0.5/sqrt(2.0), 0.5, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), -0.5, 0.5/sqrt(2.0), 0 );
+mat3 G3 = mat3( 0.5, -0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), -0.5 );
+mat3 G4 = mat3( 0, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0);
+mat3 G5 = mat3( -0.5/sqrt(2.0), 0, 0.5/sqrt(2.0), 0, 0, 0, 0.5/sqrt(2.0), 0, -0.5/sqrt(2.0) );
+mat3 G6 = mat3( 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0, 2.0/3.0, 1.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0 );
+mat3 G7 = mat3( -1.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0, 2.0/3.0, 1.0/6.0, -1.0/3.0, 1.0/6.0, -1.0/3.0);
+mat3 G8 = mat3( 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0, 1.0/3.0 );
+</code></pre><p>Si se escriben en forma matemática estas variables, es posible llegar a los siguientes kernels.</p><link rel=stylesheet href=/posteffects/katex/katex.min.css><script defer src=/posteffects/katex/katex.min.js></script>
+<script defer src=/posteffects/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[G_0 = \frac{1}{2\sqrt{2}} \cdot \left[ \begin{matrix}
+1 & 0 & -1 \\
+\sqrt{2} & 0 & -\sqrt{2} \\
+1 & 0 & -1 \\
+\end{matrix} \right] \\
+G_1 = \frac{1}{2\sqrt{2}} \cdot \left[ \begin{matrix}
+1 & \sqrt{2} & 1 \\
+0 & 0 & 0 \\
+-1 & -\sqrt{2} & -1 \\
+\end{matrix} \right] \\
+G_2 = \frac{1}{2\sqrt{2}} \cdot \left[ \begin{matrix}
+0 & -1 & \sqrt{2} \\
+1 & 0 & -1 \\
+-\sqrt{2} & 1 & 0 \\
+\end{matrix} \right] \\
+G_3 = \frac{1}{2\sqrt{2}} \cdot \left[ \begin{matrix}
+\sqrt{2} & -1 & 0 \\
+-1 & 0 & 1 \\
+1 & 0 & -1 \\
+\end{matrix} \right] \\
+G_4 = \frac{1}{2\sqrt{2}} \cdot \left[ \begin{matrix}
+0 & 1 & 0 \\
+-1 & 0 & -1 \\
+0 & 1 & 0 \\
+\end{matrix} \right] \\
+G_5 = \frac{1}{2\sqrt{2}} \cdot \left[ \begin{matrix}
+-1 & 0 & 1 \\
+0 & 0 & 0 \\
+1 & 0 & -1 \\
+\end{matrix} \right] \\
+G_6 = \frac{1}{6} \cdot \left[ \begin{matrix}
+1 & -2 & 1 \\
+-2 & 4 & 2 \\
+1 & -2 & 11 \\
+\end{matrix} \right] \\
+G_7 = \frac{1}{2\sqrt{2}} \cdot \left[ \begin{matrix}
+-2 & 1 & -2 \\
+1 & 4 & 1 \\
+-2 & 1 & -2 \\
+\end{matrix} \right] \\
+G_8 = \frac{1}{3} \cdot \left[ \begin{matrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+\end{matrix} \right]\]</span><p>Aquellas son las <strong>Máscaras de Frei-Chen</strong>, las cuales constituyen una autobase bajo la cual se pueden representar todas
+las matrices <span>\( 3 \times 3 \)</span>
+cambiando el escalar que las multiplica (Demostrasión fuera del alcance de este
+trabajo); por tanto son una generalización de cualquier operación de enmascaramiento.</p><h2 id=convolución>Convolución.
+<a class=anchor href=#convoluci%c3%b3n>#</a></h2><pre tabindex=0><code>    mat3 I;
+    float cnv[9];
+    vec3 s;
+            
+    for (float i=0.0; i&lt;3.0; i++) {
+        for (float j=0.0; j&lt;3.0; j++) {
+            s = texture2D(tex, texcoords2.st + texel * vec2(i-1.0,j-1.0)).rgb;
+            I[int(i)][int(j)] = length(s); 
+        }
+    }
+</code></pre><p>En el vector <code>s</code> se guardan los colores de los texeles adyacentes al pixel actual, para
+después almacenar su brillo en la matriz <code>I</code>.</p><pre tabindex=0><code>    for (int i=0; i&lt;9; i++) {
+        float dp3 = dot(G[i][0], I[0]) + dot(G[i][1], I[1]) + dot(G[i][2], I[2]);
+        cnv[i] = dp3 * dp3; 
+    }
+
+    float M = (cnv[0] + cnv[1]) + (cnv[2] + cnv[3]);
+    float S = (cnv[4] + cnv[5]) + (cnv[6] + cnv[7]) + (cnv[8] + M); 
+</code></pre><p>Se almacenan los cuadrados de los productos punto de las filas de cada kernel
+y las de la matriz <code>I</code> en un arreglo de nueve componentes que contiene los valores de la convolución.
+Finalmente es cuestión de obtener una suma de los cuatro primeros valores (<code>M</code>) y otra de todos los elementos (<code>S</code>) y se
+utiliza la raíz del cociente de estas cantidades para definir el valor del color del fragmento, el cual está
+en escala de grises.</p><pre tabindex=0><code>    gl_FragColor = vec4(vec3(sqrt(M/S)), 1.0);
+</code></pre><h2 id=referencias>Referencias:
+<a class=anchor href=#referencias>#</a></h2><ul><li><a href=http://www4.ujaen.es/~satorres/practicas/practica3_vc.pdf>Detección de Bordes en una Imagen</a></li><li><a href=https://www.fing.edu.uy/inco/cursos/cga/Clases/2018/EfectosDeEspacioDeImagenGabrielMadruga.pdf>G. Madruga, Efectos de Espacio de Imagen</a></li><li><a href=https://www.famaf.unc.edu.ar/~pperez1/manuales/cim/cap4.html>Procesamiento de imágenes con derivadas - Detección de esquinas y bordes.</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#detección-de-bordes>Detección de Bordes</a><ul><li><a href=#código-del-fragment-shader-del-efecto>Código del Fragment Shader del Efecto.</a></li><li><a href=#convolución>Convolución.</a></li><li><a href=#referencias>Referencias:</a></li></ul></li></ul></nav></div></aside></main></body></html>

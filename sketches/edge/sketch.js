@@ -2,9 +2,11 @@ let easyCam;
 let main_pg, edge_pg;
 let edge_shader;
 let aspect, aspectX, aspectY;
+let models;
 let rx, ry;
 let x, y;
 let img;
+let trange = 100;
 
 function preload(){
   img = loadImage('/posteffects/sketches/edge/Buho final.jpg');
@@ -18,6 +20,18 @@ function setup() {
   createCanvas(600, 300);
   angleMode(DEGREES);
   colorMode(RGB, 1);
+
+  models = [];
+  for (let i = 0; i < 50; i++) {
+    models.push(
+      {
+        position: createVector((random() * 2 - 1) * trange, (random() * 2 - 1) * trange, (random() * 2 - 1) * trange),
+        size: random() * 25 + 8,
+        color: i === 0 ? color(0, 1, 0) : color(random(), random(), random()),
+        type: i < 25 ? 'ball' : 'box'
+      }
+    );
+  }
   
   main_pg = createGraphics(width / 2, height, WEBGL);
   main_pg.angleMode(DEGREES);
@@ -35,14 +49,14 @@ function setup() {
   x = edge_pg.width / 2;
   y = edge_pg.height / 2;
 
-  aspectX = createSlider(0, 1, 1 / main_pg.width);
+  aspectX = createSlider(0, 1, 1 / main_pg.width, 0);
   aspectX.position(10, 10);
   aspectX.style('width', '80px');
   aspectX.input(function() {
     pixelate_shader.setUniform('aspect', [this.value, aspectY.value()]())
   });
 
-  aspectY = createSlider(0, 1, 1 / main_pg.height);
+  aspectY = createSlider(0, 1, 1 / main_pg.height, 0);
   aspectY.position(10, 40);
   aspectY.style('width', '80px');
   aspectY.input(function() {
@@ -71,32 +85,16 @@ function draw() {
   edge_pg.reset();
 }
 
-function render(graphics){
-  graphics.noStroke();
-  ry = (ry + 0.5) % 360;
-  rx = (rx + 0.5) % 360;
-  
+function render(graphics) {
   graphics.push();
-      graphics.fill(1, 1, 0, 1);
-      graphics.rotateY(ry);
-      graphics.box(100);
-  graphics.pop();
-  graphics.push()
-      graphics.fill(0, 1, 1, 1);
-      graphics.rotateX(rx);
-      graphics.box(100);
-  graphics.pop();
-  graphics.push();
-      graphics.fill(1, 0, 1, 1);
-      graphics.rotateX(90);
-      graphics.rotateY(ry);
-      graphics.box(100);
-  graphics.pop();
-  graphics.push();
-      graphics.fill(0);
-      graphics.rotateX(90);
-      graphics.rotateY(-ry);
-      graphics.box(100);
+  models.forEach(model => {
+    graphics.push();
+    graphics.noStroke();
+    graphics.fill(model.color);
+    graphics.translate(model.position);
+    model.type === 'box' ? graphics.box(model.size) : graphics.sphere(model.size);
+    graphics.pop();
+  });
   graphics.pop();
 }
 

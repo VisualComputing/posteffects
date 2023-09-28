@@ -1,0 +1,97 @@
+<!doctype html><html lang=es-co dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Desenfoque Horizontal # Los filtros de desenfoque son un efecto en el que se suaviza la textura sobre la que este se aplica, de modo que se atenúan las diferencias abruptas de color.
+Existen diferentes tipos de efectos de desenfoque, sin embargo en este apartado se tratará el desenfoque horizontal, que difiere de los otros al incrementar la pérdida de detalle sobre los elementos que se encuentren a mayor distancia vertical de un horizonte dado."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Desenfoque Horizontal # Los filtros de desenfoque son un efecto en el que se suaviza la textura sobre la que este se aplica, de modo que se atenúan las diferencias abruptas de color.
+Existen diferentes tipos de efectos de desenfoque, sin embargo en este apartado se tratará el desenfoque horizontal, que difiere de los otros al incrementar la pérdida de detalle sobre los elementos que se encuentren a mayor distancia vertical de un horizonte dado."><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/posteffects/docs/Efectos/Desenfoque-Horizontal/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-09-28T11:14:40-05:00"><title>Desenfoque Horizontal | Posteffects</title><link rel=manifest href=/posteffects/manifest.json><link rel=icon href=/posteffects/favicon.png type=image/x-icon><link rel=stylesheet href=/posteffects/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/posteffects/flexsearch.min.js></script>
+<script defer src=/posteffects/en.search.min.bf0f8ae44b51cab32edca8a0c1734e5e9da8ccedf988850fcde4bf9093860e18.js integrity="sha256-vw+K5EtRyrMu3KigwXNOXp2ozO35iIUPzeS/kJOGDhg=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/posteffects/><span>Posteffects</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><input type=checkbox id=section-0f516780f0e03c1811ded5819441605a class=toggle checked>
+<label for=section-0f516780f0e03c1811ded5819441605a class="flex justify-between"><a role=button>Efectos</a></label><ul><li><a href=/posteffects/docs/Efectos/Mapa-de-Profundidad/>Mapa De Profundidad</a></li><li><a href=/posteffects/docs/Efectos/Profundidad-de-Campo/>Profundidad De Campo</a></li><li><a href=/posteffects/docs/Efectos/Pixelador/>Pixelador</a></li><li><a href=/posteffects/docs/Efectos/Detecci%C3%B3n-de-Bordes/>Detección De Bordes</a></li><li><a href=/posteffects/docs/Efectos/Desenfoque-Horizontal/ class=active>Desenfoque Horizontal</a></li><li><a href=/posteffects/docs/Efectos/Caleidoscopio/>Caleidoscopio</a></li><li><a href=/posteffects/docs/Efectos/Ruido/>Ruido</a></li><li><a href=/posteffects/docs/Efectos/Rayos/>Rayos</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-039690677835ee748aa00d86a9f370b9 class=toggle>
+<label for=section-039690677835ee748aa00d86a9f370b9 class="flex justify-between"><a role=button>Apéndices</a></label><ul><li><a href=/posteffects/docs/Ap%C3%A9ndices/Apuntes-de-p5.treegl/>Apuntes De P5.treegl</a></li></ul></li><li class=book-section-flat><span>Monitoría Poo</span><ul><li><a href=/posteffects/docs/Monitor%C3%ADa-POO/Introducci%C3%B3n-a-JavaScript/>Introducción a Java Script</a></li><li><a href=/posteffects/docs/Monitor%C3%ADa-POO/Introducci%C3%B3n-a-p5/>Introducción a P5</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/posteffects/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Desenfoque Horizontal</strong>
+<label for=toc-control><img src=/posteffects/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#desenfoque-horizontal>Desenfoque Horizontal</a><ul><li><a href=#código-del-fragment-shader-del-efecto>Código del Fragment Shader del efecto.</a></li><li><a href=#referencias>Referencias:</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=desenfoque-horizontal>Desenfoque Horizontal
+<a class=anchor href=#desenfoque-horizontal>#</a></h1><p>Los filtros de desenfoque son un efecto en el que
+se suaviza la textura sobre la que este se aplica, de
+modo que se atenúan las diferencias abruptas de color.</p><p>Existen diferentes tipos de efectos de desenfoque, sin embargo en este
+apartado se tratará el desenfoque horizontal, que difiere de los otros al
+incrementar la pérdida de detalle sobre los elementos que se encuentren a mayor
+distancia vertical de un horizonte dado.</p><p>La demostrasión de este efecto se hace sobre un conjunto de elementos aleatoriamente
+posicionados en el espacio, de modo que el observador pueda encontrar un objeto a
+diferentes alturas en la imagen y evidenciar de ese modo la forma en que el nivel de desenfoque
+varía.</p><iframe id=sketch style=width:625px;height:325px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js></script>
+             <script src=https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam/p5.easycam.js></script> 
+             <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js></script> 
+            
+            
+            
+            <script src=/posteffects/sketches/horizontal/sketch.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h2 id=código-del-fragment-shader-del-efecto>Código del Fragment Shader del efecto.
+<a class=anchor href=#c%c3%b3digo-del-fragment-shader-del-efecto>#</a></h2><details open><summary>horizontal.frag</summary><div class=markdown-inner><pre tabindex=0><code>precision mediump float;
+
+uniform sampler2D tDiffuse;
+uniform float h;
+uniform float r;
+
+varying vec2 texcoords2;
+
+void main() {
+    vec2 vUv = texcoords2.st;
+    vec4 sum = vec4( 0.0 );
+
+    float hh = h * abs( r - vUv.y );
+
+    sum += texture2D( tDiffuse, vec2( vUv.x - 4.0 * hh, vUv.y ) ) * 0.051;
+    sum += texture2D( tDiffuse, vec2( vUv.x - 3.0 * hh, vUv.y ) ) * 0.0918;
+    sum += texture2D( tDiffuse, vec2( vUv.x - 2.0 * hh, vUv.y ) ) * 0.12245;
+    sum += texture2D( tDiffuse, vec2( vUv.x - 1.0 * hh, vUv.y ) ) * 0.1531;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y ) ) * 0.1633;
+    sum += texture2D( tDiffuse, vec2( vUv.x + 1.0 * hh, vUv.y ) ) * 0.1531;
+    sum += texture2D( tDiffuse, vec2( vUv.x + 2.0 * hh, vUv.y ) ) * 0.12245;
+    sum += texture2D( tDiffuse, vec2( vUv.x + 3.0 * hh, vUv.y ) ) * 0.0918;
+    sum += texture2D( tDiffuse, vec2( vUv.x + 4.0 * hh, vUv.y ) ) * 0.051;
+
+    gl_FragColor = sum;
+}
+</code></pre></div></details><p>Considerando que <code>r</code> representa la altura del horizonte imaginario en la textura de entrada (por lo
+que su valor está normalizado) y <code>h</code> el nivel de desenfoque, es más sencillo intuir el
+funcionamiento del shader a partir de esta linea:</p><pre tabindex=0><code>    float hh = h * abs( r - vUv.y );
+</code></pre><p>Es decir que <code>hh</code> es la distancia horizontal entre los pixeles cuya
+diferencia se atenuará posteriormente. esta cantidad es proporcional
+a la distancia entre la vertical de la coordenada actual de textura y el
+horizonte.</p><p>Como es usual, este suavizado también depende de una convolución entre los
+valores de los pixeles y determinado kernel. En este caso, como los pixeles están siendo
+seleccionados unicamente en sentido horizontal, la máscara debe ser también un vector y el resultado
+de la operación (el nuevo color del fragmento) no es más que el producto punto entre estos elementos</p><link rel=stylesheet href=/posteffects/katex/katex.min.css><script defer src=/posteffects/katex/katex.min.js></script>
+<script defer src=/posteffects/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[sum = (u - 4hh, u - 3hh, u - 2hh, u - hh, u, u + hh, u +2hh , u + 3hh, u + 4hh) \cdot \left[ \begin{matrix}
+0.051 \\
+0.0918 \\
+0.12245 \\
+0.1531 \\
+0.1633 \\
+0.1531 \\
+0.12245 \\
+0.0918 \\
+0.051
+\end{matrix} \right]\]</span><p>Dónde <span>\(u\)</span>
+es el componente horizontal de la coordenada
+de textura actual.</p><pre tabindex=0><code>    sum += texture2D( tDiffuse, vec2( vUv.x - 4.0 * hh, vUv.y ) ) * 0.051;
+    sum += texture2D( tDiffuse, vec2( vUv.x - 3.0 * hh, vUv.y ) ) * 0.0918;
+    sum += texture2D( tDiffuse, vec2( vUv.x - 2.0 * hh, vUv.y ) ) * 0.12245;
+    sum += texture2D( tDiffuse, vec2( vUv.x - 1.0 * hh, vUv.y ) ) * 0.1531;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y ) ) * 0.1633;
+    sum += texture2D( tDiffuse, vec2( vUv.x + 1.0 * hh, vUv.y ) ) * 0.1531;
+    sum += texture2D( tDiffuse, vec2( vUv.x + 2.0 * hh, vUv.y ) ) * 0.12245;
+    sum += texture2D( tDiffuse, vec2( vUv.x + 3.0 * hh, vUv.y ) ) * 0.0918;
+    sum += texture2D( tDiffuse, vec2( vUv.x + 4.0 * hh, vUv.y ) ) * 0.051;
+
+    gl_FragColor = sum;
+</code></pre><h2 id=referencias>Referencias:
+<a class=anchor href=#referencias>#</a></h2><ul><li><a href=http://www.glprogramming.com/red/chapter09.html#name3>OpenGL - Programming Guide, Chapter 9: Texture Mapping</a></li><li><a href=https://docs.gimp.org/2.4/es/filters.html>Parte III: La Referencia de Funciones del GIMP, Capítulo 14, Filtros</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/VisualComputing/posteffects/commit/64fbc4b5e70a295f25db6f28e733ded12df4eacb title='Last modified by Diego Fernando Bulla Poveda | 28/09/2023' target=_blank rel=noopener><img src=/posteffects/svg/calendar.svg class=book-icon alt=Calendar>
+<span>28/09/2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#desenfoque-horizontal>Desenfoque Horizontal</a><ul><li><a href=#código-del-fragment-shader-del-efecto>Código del Fragment Shader del efecto.</a></li><li><a href=#referencias>Referencias:</a></li></ul></li></ul></nav></div></aside></main></body></html>
