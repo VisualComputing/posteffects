@@ -20,7 +20,7 @@ ubicados de forma aleatoria en el espacio.
 
 ## Código del Fragment Shader del Efecto.
 
-{{< details "pixelate.frag" open >}}
+{{< details "edge.frag" open >}}
 ```
 precision mediump float;
 

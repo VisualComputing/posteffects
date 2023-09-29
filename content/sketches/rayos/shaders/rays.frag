@@ -7,23 +7,22 @@ uniform float lightDirDOTviewDir;
 
 varying vec2 texcoords2;
 
-const int NUM_SAMPLES = 50;
+const int NUM_SAMPLES = 255;
 
-void main(void)
-{
+void main(void){
 	vec4 origColor = texture2D(otex, texcoords2.st);
 	vec4 raysColor = texture2D(rtex, texcoords2.st);
 
 	if (lightDirDOTviewDir>0.0){
-		float exposure	= 0.1/float(NUM_SAMPLES);
-		float decay		= 1.0 ;
-		float density	= 0.5;
+		float exposure = 0.5/float(NUM_SAMPLES);
+		float decay = 1.0;
+		float density	= 1.0;
 		float weight	= 6.0;
 		float illuminationDecay = 1.0;
 
 		vec2 deltaTextCoord = vec2( texcoords2.st - lightPositionOnScreen);
 		vec2 textCoo = texcoords2.st;
-                deltaTextCoord *= 1.0 / float(NUM_SAMPLES) * density;
+        deltaTextCoord *= 1.0 / float(NUM_SAMPLES) * density;
 
 		for(int i=0; i < NUM_SAMPLES ; i++)
 		{
