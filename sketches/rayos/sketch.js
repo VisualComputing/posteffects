@@ -50,11 +50,11 @@ function setup() {
     rays_shader.setUniform('lightPositionOnScreen', [this.value(), lightPositionOnScreenY.value()]() );
   });
 
-  lightPositionOnScreenY = createSlider(0, 1, 0.5,  0);
+  lightPositionOnScreenY = createSlider(0, main_pg.height, 0.5,  0);
   lightPositionOnScreenY.position(10, 40);
   lightPositionOnScreenY.style('width', '80px');
   lightPositionOnScreenY.input(function() {
-    rays_shader.setUniform('lightPositionOnScreen', [lightPositionOnScreenY.value(), this.value()]() );
+    rays_shader.setUniform('lightPositionOnScreen', [lightPositionOnScreenX.value(), this.value()]() );
   });
 
   lightDirDOTviewDir = createSlider(0, 1, 0.7, 0.1);
@@ -64,7 +64,7 @@ function setup() {
     rays_shader.setUniform('lightDirDOTviewDir', this.value());
   });
     
-  rays_shader.setUniform('lightPositionOnScreen', [lightPositionOnScreenX.value(), lightPositionOnScreenY.value()]);
+  rays_shader.setUniform('lightPositionOnScreen', [0.5, 0.5]);
   rays_shader.setUniform('lightDirDOTviewDir', lightDirDOTviewDir.value());
 
   //rays_shader.setUniform('lightPositionOnScreen', [0.5, 0.5]);
@@ -82,6 +82,9 @@ function draw() {
   rays_shader.setUniform('otex', main_pg);
   rays_shader.setUniform('rtex', main_pg);
   
+  rays_shader.setUniform('lightPositionOnScreen', [1 - mouseX / main_pg.width, 1 - mouseY / main_pg.height]);
+  //rays_shader.setUniform('lightDirDOTviewDir', 0.7);
+
   rays_pg.background(0);
   /*
   rays_pg.camera(position.x, position.y, position.z,
@@ -116,4 +119,8 @@ function render2(graphics){
   //graphics.background(img);
   graphics.image(img, - graphics.width / 2, - graphics.height / 2, graphics.width, graphics.height);
   
+}
+
+function mouseClicked() {
+  console.log(mouseY, main_pg.height / mouseY);
 }
