@@ -106,3 +106,7 @@ function keyPressed() {
 function mouseWheel(event) {
   return false;
 }
+
+function mouseWheel(event) {
+  return false;
+}

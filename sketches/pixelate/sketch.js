@@ -104,3 +104,7 @@ function render(graphics){
   graphics.pop();
   
 }
+
+function mouseWheel(event) {
+  return false;
+}
