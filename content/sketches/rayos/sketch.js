@@ -121,6 +121,6 @@ function render2(graphics){
   
 }
 
-function mouseClicked() {
-  console.log(mouseY, main_pg.height / mouseY);
+function mouseWheel(event) {
+  return false;
 }

@@ -107,3 +107,7 @@ function render2(graphics){
   graphics.image(img, - graphics.width / 2, - graphics.height / 2, graphics.width, graphics.height);
   
 }
+
+function mouseWheel(event) {
+  return false;
+}
