@@ -3,13 +3,6 @@ weight: 8
 ---
 
 # Rayos
-
-
-{{< p5-iframe sketch="/posteffects/sketches/rayos/sketch.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam/p5.easycam.js" lib2=
-"https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="625" height="325" >}}
-
-## Código del Fragment Shader del efecto:
-
 Cotidianamente no hay entornos uniformemente iluminados, la luz interactúa 
 con los objetos de formas distintas considerando factores como su posición respecto 
 al emisor y al observador, las propiedades intrínsecas de la onda y el material sobre el 
@@ -25,6 +18,11 @@ efecto capaz de dotar a los objetos de haces fulgurantes.
 La siguiente escena muestra un conjunto de objetos capaces de irradiar luz, dirigida 
 por la posición del puntero del mouse sobre el sector izquierdo del sketch (que muestra el 
 modelo previo a la aplicación del efecto) hacia la pantalla.
+
+{{< p5-iframe sketch="/posteffects/sketches/rayos/sketch.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam/p5.easycam.js" lib2=
+"https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="625" height="325" >}}
+
+## Código del Fragment Shader del efecto:
 
 {{< details "rays.frag" open >}}
 ```
