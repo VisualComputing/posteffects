@@ -1,11 +1,18 @@
-<!doctype html><html lang=es-co dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Mezcla de Efectos de Posprocesado # "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content=" Mezcla de Efectos de Posprocesado # "><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/posteffects/docs/Efectos/Mezcla-de-Efectos/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-10-26T06:48:45-05:00"><title>Mezcla De Efectos | Posteffects</title><link rel=manifest href=/posteffects/manifest.json><link rel=icon href=/posteffects/favicon.png type=image/x-icon><link rel=stylesheet href=/posteffects/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/posteffects/flexsearch.min.js></script>
-<script defer src=/posteffects/en.search.min.c1a45501ac1473569a1960620cdbf89a3ec160a9fdb7f39114a2af7e012133d6.js integrity="sha256-waRVAawUc1aaGWBiDNv4mj7BYKn9t/ORFKKvfgEhM9Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=es-co dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Mezcla de Efectos de Posprocesado # Si bien los ejemplos anteriores se explican a sí mismos y tienen un potencial intrínseco, es imposible aprovecharlo completamente desde el uso individual de cada efecto. La combinación de efectos de posprocesado ofrece una ámplia gama de posibilidades tanto estéticas como prácticas a cambio de un manejo cuidadoso de la estructura de la escena y la forma en que este se aplica.
+Para este caso, la combinación de efectos se aplica sobre una escena conformada por objetos posicionados de forma aleatoria en el espacio y una esfera de ubicación variable que cumple el rol de elemento a enfocar cuando se desee aplicar Profundidad de Campo."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Mezcla de Efectos de Posprocesado # Si bien los ejemplos anteriores se explican a sí mismos y tienen un potencial intrínseco, es imposible aprovecharlo completamente desde el uso individual de cada efecto. La combinación de efectos de posprocesado ofrece una ámplia gama de posibilidades tanto estéticas como prácticas a cambio de un manejo cuidadoso de la estructura de la escena y la forma en que este se aplica.
+Para este caso, la combinación de efectos se aplica sobre una escena conformada por objetos posicionados de forma aleatoria en el espacio y una esfera de ubicación variable que cumple el rol de elemento a enfocar cuando se desee aplicar Profundidad de Campo."><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/posteffects/docs/Efectos/Mezcla-de-Efectos/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-10-27T08:47:13-05:00"><title>Mezcla De Efectos | Posteffects</title><link rel=manifest href=/posteffects/manifest.json><link rel=icon href=/posteffects/favicon.png type=image/x-icon><link rel=stylesheet href=/posteffects/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/posteffects/flexsearch.min.js></script>
+<script defer src=/posteffects/en.search.min.ec28e08ff08a5bce76b9d8751c19f58a5c14ed7ea8f29f60393ca6165b82b4fe.js integrity="sha256-7Cjgj/CKW852udh1HBn1ilwU7X6o8p9gOTymFluCtP4=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/posteffects/><span>Posteffects</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><input type=checkbox id=section-0f516780f0e03c1811ded5819441605a class=toggle checked>
 <label for=section-0f516780f0e03c1811ded5819441605a class="flex justify-between"><a role=button>Efectos</a></label><ul><li><a href=/posteffects/docs/Efectos/Mapa-de-Profundidad/>Mapa De Profundidad</a></li><li><a href=/posteffects/docs/Efectos/Profundidad-de-Campo/>Profundidad De Campo</a></li><li><a href=/posteffects/docs/Efectos/Pixelador/>Pixelador</a></li><li><a href=/posteffects/docs/Efectos/Detecci%C3%B3n-de-Bordes/>Detección De Bordes</a></li><li><a href=/posteffects/docs/Efectos/Desenfoque-Horizontal/>Desenfoque Horizontal</a></li><li><a href=/posteffects/docs/Efectos/Caleidoscopio/>Caleidoscopio</a></li><li><a href=/posteffects/docs/Efectos/Ruido/>Ruido</a></li><li><a href=/posteffects/docs/Efectos/Rayos/>Rayos</a></li><li><a href=/posteffects/docs/Efectos/Mezcla-de-Efectos/ class=active>Mezcla De Efectos</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-039690677835ee748aa00d86a9f370b9 class=toggle>
 <label for=section-039690677835ee748aa00d86a9f370b9 class="flex justify-between"><a role=button>Apéndices</a></label><ul><li><a href=/posteffects/docs/Ap%C3%A9ndices/Apuntes-de-p5.treegl/>Apuntes De P5.treegl</a></li></ul></li><li class=book-section-flat><span>Monitoría Poo</span><ul><li><a href=/posteffects/docs/Monitor%C3%ADa-POO/Introducci%C3%B3n-a-JavaScript/>Introducción a Java Script</a></li><li><a href=/posteffects/docs/Monitor%C3%ADa-POO/Introducci%C3%B3n-a-p5/>Introducción a P5</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/posteffects/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Mezcla De Efectos</strong>
-<label for=toc-control><img src=/posteffects/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#mezcla-de-efectos-de-posprocesado>Mezcla de Efectos de Posprocesado</a></li></ul></nav></aside></header><article class=markdown><h1 id=mezcla-de-efectos-de-posprocesado>Mezcla de Efectos de Posprocesado
-<a class=anchor href=#mezcla-de-efectos-de-posprocesado>#</a></h1><iframe id=sketch style=width:625px;height:625px srcdoc="
+<label for=toc-control><img src=/posteffects/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#mezcla-de-efectos-de-posprocesado>Mezcla de Efectos de Posprocesado</a><ul><li><a href=#implementación-de-mezcla-de-efectos>Implementación de Mezcla de Efectos.</a><ul><li><a href=#función-setup>Función <code>setup</code>.</a></li><li><a href=#funciones-adicionales>Funciones Adicionales</a></li><li><a href=#función-draw>Función <code>draw</code>.</a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=mezcla-de-efectos-de-posprocesado>Mezcla de Efectos de Posprocesado
+<a class=anchor href=#mezcla-de-efectos-de-posprocesado>#</a></h1><p>Si bien los ejemplos anteriores se explican a sí mismos y tienen un potencial intrínseco, es imposible aprovecharlo completamente
+desde el uso individual de cada efecto. La combinación de efectos de
+posprocesado ofrece una ámplia gama de posibilidades tanto estéticas como prácticas a cambio de un manejo cuidadoso
+de la estructura de la escena y la forma en que este se aplica.</p><p>Para este caso, la combinación de efectos se aplica sobre una escena conformada por objetos posicionados
+de forma aleatoria en el espacio y una esfera de ubicación variable que cumple el rol de elemento a enfocar
+cuando se desee aplicar <code>Profundidad de Campo</code>.</p><iframe id=sketch style=width:625px;height:625px srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -21,5 +28,116 @@
           <body>
           </body>
         </html>
-      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/VisualComputing/posteffects/commit/36f755f070d92cf9290ca2c8b80238751a3e3b6e title='Last modified by Diego Fernando Bulla Poveda | 26/10/2023' target=_blank rel=noopener><img src=/posteffects/svg/calendar.svg class=book-icon alt=Calendar>
-<span>26/10/2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#mezcla-de-efectos-de-posprocesado>Mezcla de Efectos de Posprocesado</a></li></ul></nav></div></aside></main></body></html>
+      "></iframe><p>Es importante destacar que esta implementación aplica los efectos en el orden en que fueron seleccionados y no
+en el que aparece listado en el sketch. Esto incrementa las posibilidades de experimentación y es la forma más sencilla
+de demostrar que la aplicación de efectos no es conmutativa.</p><div class="book-columns flex flex-wrap"><div class="flex-even markdown-inner"><img src=/posteffects/docs/Efectos/recursos/mezcla_0.png alt="El borde de la figura no es continuo, está formado por pequeños cuadritos">
+<em>Figura 1: Efecto de pixelado aplicado a una Detección de Bordes</em>.</div><div class="flex-even markdown-inner"><img src=/posteffects/docs/Efectos/recursos/mezcla_1.png alt="El borde de la imagen es continuo, es el contorno de una imagen pixelada">
+<em>Figura 2: Efecto de Detección de Bordes aplicado a un Pixelado</em>.</div></div><h2 id=implementación-de-mezcla-de-efectos>Implementación de Mezcla de Efectos.
+<a class=anchor href=#implementaci%c3%b3n-de-mezcla-de-efectos>#</a></h2><blockquote><p>Antes de ahondar en los detalles de la implementación, se especifica que con el objetivo
+de desarrollar una explicación práctica y evitar la lectura de elementos repetitivos y tal vez redundantes
+la totalidad del código no será mostrada, puede que algunas líneas incluso se alteren para resumir su significado.</p></blockquote><p>En primer lugar deben declararse los buffer que contendrán cada uno de los efectos (<code>efecto_pg</code>), además de uno para la escena original
+(<code>main_pg</code>) y otro para la visualización actual (<code>current_pg</code>); lo mismo debe hacerse para los shaders correspondientes.</p><pre tabindex=0><code>let current_pg, main_pg, caleido_pg, dof_pg; // etc  
+let caleido_shader, dof_shader, edge_shader; // etc
+</code></pre><p>Para aplicar los efectos en orden de selección, es necesario usar un arreglo que indique cuales
+efectos han sido seleccionados y en qué orden.</p><pre tabindex=0><code>let effects = [0];
+</code></pre><h3 id=función-setup>Función <code>setup</code>.
+<a class=anchor href=#funci%c3%b3n-setup>#</a></h3><p>Dentro de la función <code>setup</code> se inicializa cada buffer, se le asocia el shader
+correspondiente y se inicializan algunas de sus uniformes con valores por defecto. Con fines prácticos
+no se permite variar los parámetros de los shaders como en secciones anteriores ya que no es ese el objetivo actual.</p><pre tabindex=0><code>  efecto_pg = createGraphics(width, height, WEBGL);
+  efecto_pg.textureMode(NORMAL);
+  efecto_pg.colorMode(RGB, 1);
+  efecto_pg.shader(efecto_shader);
+  efecto_shader.setUniform(&#39;uniforme&#39;, valor);
+</code></pre><p>Cuando un efecto es seleccionado su controlador respectivo (<code>efecto_chk</code>) ejecuta un método
+que sirve para determinar el efecto actual y su orden de aplicación.</p><pre tabindex=0><code>  efecto_chk.changed(() =&gt; {
+    if (efecto_chk.checked()){
+            effects.push(índice de efecto);
+    } else {
+      let idx = effects.indexOf(índice de efecto);
+      effects.splice(idx, 1);
+    }
+  });
+</code></pre><p>Cuando se selecciona un efecto, su índice asociado se añade al arreglo, cuando deja de
+aplicarse, dicho índice se elimina. De este modo se consigue que los índices asociados a cada efecto
+aparezcan dentro de la estructura en orden de aplicación, simulando una pila pero con la ventaja de poder
+retirar elementos que no estén en la cima.
+A continuación se muestra la tabla de índices de la implementación actual:</p><table><thead><tr><th>índice de efecto</th><th>Efecto</th></tr></thead><tbody><tr><td>0</td><td>Escena Original</td></tr><tr><td>1</td><td>Caleidoscopio</td></tr><tr><td>2</td><td>Profundidad de Campo</td></tr><tr><td>3</td><td>Detección de Bordes</td></tr><tr><td>4</td><td>Desenfoque Horizontal</td></tr><tr><td>5</td><td>Ruido Simplex</td></tr><tr><td>6</td><td>Pixelado</td></tr><tr><td>7</td><td>Rayos</td></tr></tbody></table><h3 id=funciones-adicionales>Funciones Adicionales
+<a class=anchor href=#funciones-adicionales>#</a></h3><p>Para mapear los índices asociados a cada efecto al buffer dónde se aplican se
+emplea la siguiente función:</p><details open><summary>Función buff</summary><div class=markdown-inner><pre tabindex=0><code>function buff(n){
+  let pg;
+  if (n === 0){
+    pg = main_pg;
+  } else if (n === 1){
+    pg = caleido_pg;
+  } else if (n === 2){
+    pg = dof_pg;
+  }else if (n === 3){
+    pg = edge_pg;
+  } else if (n === 4){
+    pg = horizontal_pg;
+  } else if (n === 5){
+    pg = noise_pg;
+  } else if (n === 6){
+    pg = pixelate_pg;
+  } else if (n === 7){
+    pg = rays_pg;
+  }
+  return pg;
+}
+</code></pre></div></details><p>Para mapear los índices asociados a cada efecto al shader que lo implementa, se emplea
+la siguiente función:</p><details open><summary>Función shdr</summary><div class=markdown-inner><pre tabindex=0><code>function shdr(n){
+  let effect;
+  if (n === 1){
+    effect = caleido_shader;
+  } else if (n === 2){
+    effect = dof_shader;
+  }else if (n === 3){
+    effect = edge_shader;
+  } else if (n === 4){
+    effect = horizontal_shader;
+  } else if (n === 5){
+    effect = noise_shader;
+  } else if (n === 6){
+    effect = pixelate_shader;
+  } else if (n === 7){
+    effect = rays_shader;
+  } else {
+    effect = null;
+  }
+  return effect;
+}
+</code></pre></div></details><h3 id=función-draw>Función <code>draw</code>.
+<a class=anchor href=#funci%c3%b3n-draw>#</a></h3><p>Dentro de la función <code>draw</code> se aplican los efectos en el orden indicado
+por el arreglo, el cumplimiento de esto culmina tal que así:</p><pre tabindex=0><code>  if (effects.length === 1){
+    current_pg = main_pg;
+  }
+  
+  for (let i = 1; i &lt; effects.length; i++){
+    let tx = buff(effects[i - 1]);
+    let pg = buff(effects[i]);
+    let sh = shdr(effects[i]) 
+    sh.setUniform(&#39;tex&#39;, tx);
+    
+    if (effects[i] === índice del efecto){
+      // Aplique las operaciones necesarias en 
+      // Cada efecto que requiera ajustes adicionales.
+    } else if (effects[i] === 7){ // Ejemplo: Efecto de Rayos:
+      sh.setUniform(&#39;rtex&#39;, tx);
+      sh.setUniform(&#39;lightPositionOnScreen&#39;, [1 - mouseX / main_pg.width, 1 - mouseY / main_pg.height]);
+    }
+    
+    // Tener en cuenta que las coordenadas de textura 
+    // están normalizadas.
+
+    pg.quad(-1, 1, 1, 1, 1, -1, -1, -1);
+    current_pg = pg;
+  }
+</code></pre><p>Para lograr esta generalización es necesario unificar la sintaxis de los shaders, de modo que
+la uniforme asociada a la textura que representa la escena siempre debe ser llamada <code>tex</code>. Es importante
+notar que cuando <code>0</code> es el único elemento del arreglo se retoma la escena original como textura a mostrar.</p><p>Finalmente se dibuja el resultado de la aplicación consecutiva de los elementos seleccionados y se resetea cada buffer.</p><pre tabindex=0><code>  image(current_pg, 0, 0);
+  
+  main_pg.reset();
+  current_pg.reset();
+  efecto_pg.reset();
+</code></pre></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/VisualComputing/posteffects/commit/d272ad197fc68ebaa0ab138e6318b3883da0a59f title='Last modified by Diego Fernando Bulla Poveda | 27/10/2023' target=_blank rel=noopener><img src=/posteffects/svg/calendar.svg class=book-icon alt=Calendar>
+<span>27/10/2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#mezcla-de-efectos-de-posprocesado>Mezcla de Efectos de Posprocesado</a><ul><li><a href=#implementación-de-mezcla-de-efectos>Implementación de Mezcla de Efectos.</a><ul><li><a href=#función-setup>Función <code>setup</code>.</a></li><li><a href=#funciones-adicionales>Funciones Adicionales</a></li><li><a href=#función-draw>Función <code>draw</code>.</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
